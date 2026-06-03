@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clínica Bem-Estar — Contato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- MENU -->
+  <nav>
+    <div class="logo">🌿 Clínica<br/><strong style="color:#fff">Bem-Estar</strong></div>
+    <ul>
+      <li><a href="index.html">🏠 Página Principal</a></li>
+      <li><a href="sobre.html">🏥 Sobre a Clínica</a></li>
+      <li><a href="horarios.html">🕐 Horário de Atendimento</a></li>
+      <li><a href="contato.html" class="ativo">📞 Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80" alt="Contato"/>
+    <div class="overlay"><h1>Entre em Contato</h1></div>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+    <h2>Fale com a Clínica Bem-Estar</h2>
+    <p>Estamos à disposição para agendar consultas, tirar dúvidas ou receber sugestões. Escolha o canal de atendimento que preferir.</p>
+
+    <div class="contato-grid">
+
+      <!-- COLUNA ESQUERDA: Infos + Mapa -->
+      <div>
+        <h3>📍 Informações de Contato</h3>
+
+        <div class="info-block">
+          <div class="ic">📞</div>
+          <div>
+            <strong>Telefone fixo</strong>
+            <p>(11) 3456-7890</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="ic">📱</div>
+          <div>
+            <strong>Celular / WhatsApp</strong>
+            <p>(11) 99876-5432</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="ic">✉️</div>
+          <div>
+            <strong>E-mail</strong>
+            <p>contato@clinicabemestar.com.br</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="ic">📍</div>
+          <div>
+            <strong>Endereço</strong>
+            <p>Rua das Flores, 1247 — Jardim Paulista<br/>São Paulo/SP — CEP 01452-001</p>
+          </div>
+        </div>
+
+        <h3>🗺️ Como Chegar</h3>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9951234!2d-46.6676787!3d-23.5682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sJardim%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1680000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização da Clínica Bem-Estar">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA: Formulário -->
+      <div class="form-col">
+        <h3>💬 Formulário de Contato</h3>
+
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome"/>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com"/>
+        </div>
+
+        <div class="form-group">
+          <label for="assunto">Assunto</label>
+          <input type="text" id="assunto" name="assunto" placeholder="Ex.: Agendamento de consulta"/>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn-enviar" onclick="enviarForm()">📤 Enviar Mensagem</button>
+          <button type="button" class="btn-limpar" onclick="limparForm()">🗑️ Limpar</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Clínica Bem-Estar</strong> — Rua das Flores, 1247, Jardim Paulista, São Paulo/SP &nbsp;|&nbsp;
+    📞 (11) 3456-7890 &nbsp;|&nbsp; 📱 (11) 99876-5432 &nbsp;|&nbsp; ✉️ contato@clinicabemestar.com.br
+  </footer>
+
+</div>
+
+<script>
+  function enviarForm() {
+    const nome    = document.getElementById('nome').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const assunto = document.getElementById('assunto').value.trim();
+    const msg     = document.getElementById('mensagem').value.trim();
+    if (!nome || !email || !assunto || !msg) {
+      alert('Por favor, preencha todos os campos antes de enviar.');
+      return;
+    }
+    alert(`✅ Mensagem enviada com sucesso!\n\nOlá, ${nome}! Entraremos em contato em breve pelo e-mail ${email}.`);
+    limparForm();
+  }
+
+  function limparForm() {
+    document.getElementById('nome').value    = '';
+    document.getElementById('email').value   = '';
+    document.getElementById('assunto').value = '';
+    document.getElementById('mensagem').value = '';
+  }
+</script>
+</body>
+</html>
